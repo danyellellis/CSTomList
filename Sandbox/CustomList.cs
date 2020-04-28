@@ -10,17 +10,24 @@ namespace Sandbox
     {
         // member variables (HAS A)
         private T[] items;
+        public readonly int countProperty;
+        public int capacityProperty;
+
+
 
         // constructor (SPAWNER)
         public CustomList()
         {
-            items = new T[4];
+            countProperty = 0;
+            capacityProperty = 4;
+            items = new T[capacityProperty];
+            
         }
 
         // member methods (CAN DO)
         public void Add(T item)
         {
-
+            //Write logic to make the Add tests pass!
         }
     }
 }

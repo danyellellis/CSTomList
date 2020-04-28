@@ -114,8 +114,118 @@ namespace CustomListTests
 
             // assert
             Assert.AreNotEqual(expected, actual);
-        }
 
+            ///////////REMOVE//////
+        }
+        [TestMethod]
+        public void Remove_MultipleValueToEmptyCustomList_RemoveOne_CheckingCount()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = 1;
+            int expected = 4;
+            int actual;
+
+            // act
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.remove(itemToAdd);
+            actual = testList.countProperty;
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Remove_MultipleValueToEmptyCustomList_RemoveOne_CheckingIndexZero()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int value1 = 20;
+            int value2 = 25;
+            int value3 = 30;
+            int value4 = 35;
+            int value5 = 40;
+            int expected = 25;
+            int actual;
+
+            // act
+            testList.Add(value1);
+            testList.Add(value2);
+            testList.Add(value3);
+            testList.Add(value4);
+            testList.Add(value5);
+            testList.remove(value1)
+            actual = testList[0];
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Remove_OneValueToEmptyCustomList_RemoveOne_ItemFive()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int itemToAdd1 = 20 ;
+            int itemToAdd2 = 21;
+            int itemToAdd3 = 22;
+            int itemToAdd4 = 23;
+            int itemToAdd5 = 24;
+            int expected = 4;
+            int actual;
+
+            // act
+            testList.Add(itemToAdd1);
+            testList.Add(itemToAdd2);
+            testList.Add(itemToAdd3);
+            testList.Add(itemToAdd4);
+            testList.Add(itemToAdd5);
+            testList.Remove(itemToAdd5)
+            actual = testList.capacityProperty;
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Remove_RemovingOneValueToEmptyCustomList_NextValueGoesToIndexZero()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = 9;
+            int itemToAdd1 = 10;
+            int itemToAdd2 = 11;
+            int expected = 11;
+            int actual;
+
+            // act
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd1);
+            testList.Add(itemToAdd2);
+            testList.Remove(itemToAdd);
+            actual = testList.[0];
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Remove_TwoPositiveValues_RemoveOneCheckingCapacity()
+        {
+            //arrange
+            CustomList<int> testList = new CustomList<int>();
+            int value1 = 5;
+            int value2 = 10;
+            int expected = 4;
+            int actual;
+            //act
+            testList.Add(value1);
+            testList.Add(value2);
+            testList.Remove(value1);
+            actual = testList.capacityProperty;
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
 
 
 

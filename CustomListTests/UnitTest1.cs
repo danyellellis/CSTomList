@@ -97,6 +97,46 @@ namespace CustomListTests
             Assert.AreNotEqual(expected, actual);
         }
         [TestMethod]
+        public void Add_AddingOneValueToEmptyCustomList_NewItemAddedAtEndAfterFive()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = -10;
+            int expected = 50;
+            int actual;
+
+            // act
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(50);
+            actual = testList[4];
+
+            // assert
+            Assert.AreNotEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Add_AddingOneValueToEmptyCustomList_OriginalItemsPersists()
+        {
+            // arrange
+            CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = -10;
+            int expected = 40;
+            int actual;
+
+            // act
+            testList.Add(40);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            actual = testList[0];
+
+            // assert
+            Assert.AreNotEqual(expected, actual);
+        }
+        [TestMethod]
         public void Add_AddingMultipleValueToEmptyCustomList_CheckLastItemAtCorrectIndexs()
         {
             // arrange
@@ -132,7 +172,7 @@ namespace CustomListTests
             testList.Add(itemToAdd);
             testList.Add(itemToAdd);
             testList.Add(itemToAdd);
-            testList.remove(itemToAdd);
+            testList.Remove(itemToAdd);
             actual = testList.countProperty;
 
             // assert
@@ -157,7 +197,7 @@ namespace CustomListTests
             testList.Add(value3);
             testList.Add(value4);
             testList.Add(value5);
-            testList.remove(value1)
+            testList.Remove(value1);
             actual = testList[0];
 
             // assert
@@ -182,7 +222,7 @@ namespace CustomListTests
             testList.Add(itemToAdd3);
             testList.Add(itemToAdd4);
             testList.Add(itemToAdd5);
-            testList.Remove(itemToAdd5)
+            testList.Remove(itemToAdd5);
             actual = testList.capacityProperty;
 
             // assert
@@ -204,7 +244,7 @@ namespace CustomListTests
             testList.Add(itemToAdd1);
             testList.Add(itemToAdd2);
             testList.Remove(itemToAdd);
-            actual = testList.[0];
+            actual = testList[0];
 
             //assert
             Assert.AreEqual(expected, actual);

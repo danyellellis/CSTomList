@@ -66,7 +66,7 @@ namespace CustomListTests
             // arrange
             CustomList<int> testList = new CustomList<int>();
             int itemToAdd = -16;
-            int expected = 20;
+            int expected = 1;
             int actual;
 
             // act
@@ -74,7 +74,7 @@ namespace CustomListTests
             actual = testList.countProperty;
 
             // assert
-            Assert.AreNotEqual(expected, actual);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void Add_AddingOneValueToEmptyCustomList_CapacityDoublesAfterFiveItems()
@@ -94,7 +94,7 @@ namespace CustomListTests
             actual = testList.capacityProperty;
 
             // assert
-            Assert.AreNotEqual(expected, actual);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void Add_AddingOneValueToEmptyCustomList_NewItemAddedAtEndAfterFive()
@@ -114,7 +114,7 @@ namespace CustomListTests
             actual = testList[4];
 
             // assert
-            Assert.AreNotEqual(expected, actual);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void Add_AddingOneValueToEmptyCustomList_OriginalItemsPersists()
@@ -134,7 +134,7 @@ namespace CustomListTests
             actual = testList[0];
 
             // assert
-            Assert.AreNotEqual(expected, actual);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void Add_AddingMultipleValueToEmptyCustomList_CheckLastItemAtCorrectIndexs()
@@ -153,7 +153,7 @@ namespace CustomListTests
             actual = testList[4];
 
             // assert
-            Assert.AreNotEqual(expected, actual);
+            Assert.AreEqual(expected, actual);
 
             ///////////REMOVE//////
         }

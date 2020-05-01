@@ -67,36 +67,35 @@ namespace Sandbox
             {
                 //we want capacity to double
                 capacityProperty = capacityProperty * 2;
-                int[] tempArray = { 1, 2, 3, 4, 5, 6, 7, 8 };
+                T[] tempArray = new T[capacityProperty];
                 for (int i = 0; i < countProperty; i++)
                 {
-
+                      tempArray[i] = items[i];
                 }
-
-              
-                //create a new array with size 'capacityPropety', call it tempArray
-                //items [x, x, x, x]
-                //tempArray [_, _, _, _, _, _, _, _]
-
-                //transfer the first things from 'items' into tempArray
-
-
+                items = tempArray;
             }
-
-
+            
             items[countProperty] = item;
             countProperty++;
             //Write logic to make the Add tests pass!
         }
 
-
         public void Remove(T Item)
         {
-            for (int i = 0; i < countProperty; i++)
+            
+            T[] tempArray = new T[capacityProperty];
+            for (int i = countProperty; i < tempArray.Length; i++)
             {
-
+                if (i >= tempArray.Length - 1 )
+                {
+                    items[i] = tempArray[i];
+                }
             }
-
+             items = tempArray;
+            countProperty++;
+            //Step through list with for loop
+            //compare each item to the item being removed
+            //if you find the item being removed in the list, what will you do?
         }
 
 
@@ -107,9 +106,13 @@ namespace Sandbox
                 yield return items[i];
             }
         }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
 
 
 
-        
+
     }
 }
